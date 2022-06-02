@@ -12,11 +12,11 @@ pub mod solana_twitter {
         let clock: Clock = Clock::get().unwrap();
 
         if topic.chars().count() > 50 {
-            return Err(ErrorCode::TopicTooLong.into());
+            return Err(error!(ErrorCode::TopicTooLong));
         }
 
         if content.chars().count() > 280 {
-            return Err(ErrorCode::ContentTooLong.into());
+            return Err(error!(ErrorCode::ContentTooLong));
         }
 
         tweet.author = *author.key;
