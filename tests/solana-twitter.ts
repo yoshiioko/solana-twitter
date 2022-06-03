@@ -156,4 +156,22 @@ describe("solana-twitter", () => {
       })
     );
   });
+
+  it("Can filter tweets by topics", async function () {
+    const tweetAccounts = await program.account.tweet.all([
+      {
+        memcmp: {
+          offset: 8 + 32 + 8 + 4, // Discriminator + Author public key + Timestamp + Topic String Prefix
+          bytes: bs58.encode(Buffer.from("veganism")),
+        },
+      },
+    ]);
+
+    assert.equal(tweetAccounts.length, 2);
+    assert.ok(
+      tweetAccounts.every((tweetAccoun) => {
+        return tweetAccoun.account.topic === "veganism";
+      })
+    );
+  });
 });
