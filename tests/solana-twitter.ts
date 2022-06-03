@@ -1,5 +1,6 @@
 import * as anchor from "@project-serum/anchor";
 import * as assert from "assert";
+import * as bs58 from "bs58";
 
 describe("solana-twitter", () => {
   // Configure the client to use the local cluster.
@@ -127,6 +128,32 @@ describe("solana-twitter", () => {
 
     assert.fail(
       "The instruction should have failed with a 281-character content."
+    );
+  });
+
+  it("Can fetch all tweets", async function () {
+    const tweetAccounts = await program.account.tweet.all();
+    assert.equal(tweetAccounts.length, 3);
+  });
+
+  it("Can filter tweets by author", async function () {
+    const authorPublicKey = program.provider.wallet.publicKey;
+    const tweetAccounts = await program.account.tweet.all([
+      {
+        memcmp: {
+          offset: 8, // Discriminator
+          bytes: authorPublicKey.toBase58(),
+        },
+      },
+    ]);
+
+    assert.equal(tweetAccounts.length, 2);
+    assert.ok(
+      tweetAccounts.every((tweetAccount) => {
+        return (
+          tweetAccount.account.author.toBase58() === authorPublicKey.toBase58()
+        );
+      })
     );
   });
 });
