@@ -5,6 +5,7 @@ import {
   PhantomWalletAdapter,
   SolflareWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
+import { initWallet } from "solana-wallets-vue";
 
 const route = useRoute();
 
