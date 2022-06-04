@@ -33,10 +33,13 @@ const authorRoute = computed(() => {
       <time class="text-gray-500 text-sm" :title="tweet.created_at">
         <!-- TODO: Link to the tweet page. -->
         <router-link
-          :to="{ name: 'Tweet', params: { tweet: tweet.publicKey.toBase58() } }"
+          :to="{
+            name: 'Tweet',
+            params: { tweet: tweet.publicKey.toBase58() },
+          }"
           class="hover:underline"
         >
-          {{ tweet.created_ago }}
+          {{ tweet.topic }}
         </router-link>
       </time>
     </div>
@@ -47,7 +50,7 @@ const authorRoute = computed(() => {
       :to="{ name: 'Topics', params: { topic: tweet.topic } }"
       class="inline-block mt-2 text-pink-500 hover:underline"
     >
-      {{ tweet.created_ago }}
+      {{ tweet.topic }}
     </router-link>
   </div>
 </template>
