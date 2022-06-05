@@ -3,11 +3,17 @@ seeds = false
 [programs.localnet]
 solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
 
+[programs.devnet]
+solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
+
+[programs.mainnet]
+solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
+
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/yoshiioko/.config/solana/id.json"
 
 [scripts]
