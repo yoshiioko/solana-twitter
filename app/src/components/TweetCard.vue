@@ -33,7 +33,7 @@ const authorRoute = computed(() => {
         <router-link
           :to="{
             name: 'Tweet',
-            params: { tweet: tweet.value.publicKey.toBase58() },
+            params: { tweet: tweet.publicKey.toBase58() },
           }"
           class="hover:underline"
         >
