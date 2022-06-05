@@ -31,7 +31,10 @@ const authorRoute = computed(() => {
       <span class="text-gray-500"> • </span>
       <time class="text-gray-500 text-sm" :title="tweet.created_at">
         <router-link
-          :to="{ name: 'Tweet', params: { tweet: tweet.publicKey.toBase58() } }"
+          :to="{
+            name: 'Tweet',
+            params: { tweet: tweet.value.publicKey.toBase58() },
+          }"
           class="hover:underline"
         >
           {{ tweet.created_ago }}
