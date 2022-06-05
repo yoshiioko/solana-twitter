@@ -1,13 +1,13 @@
 [features]
 seeds = false
 [programs.localnet]
-solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
+solana_twitter = "FBMbT2kk2NXubu4Qb2mVCDmzFFUQCAbQgYLt3wV8mG5t"
 
 [programs.devnet]
-solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
+solana_twitter = "FBMbT2kk2NXubu4Qb2mVCDmzFFUQCAbQgYLt3wV8mG5t"
 
 [programs.mainnet]
-solana_twitter = "6jRCggDP41Qe5Rc5ECCgbQP5tvDEqxf2hSyWFdW71tzc"
+solana_twitter = "FBMbT2kk2NXubu4Qb2mVCDmzFFUQCAbQgYLt3wV8mG5t"
 
 [registry]
 url = "https://anchor.projectserum.com"

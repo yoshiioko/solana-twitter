@@ -15,15 +15,14 @@ export const useWorkspace = () => workspace;
 export const initWorkspace = () => {
   const wallet = useAnchorWallet();
   const connection = new Connection(clusterUrl, commitment);
-  const provider = computed(() => {
-    return new AnchorProvider(connection, wallet.value, {
-      preflightCommitment,
-      commitment,
-    });
-  });
-  const program = computed(() => {
-    return new Program(idl, programID, provider.value);
-  });
+  const provider = computed(
+    () =>
+      new AnchorProvider(connection, wallet.value, {
+        preflightCommitment,
+        commitment,
+      })
+  );
+  const program = computed(() => new Program(idl, programID, provider.value));
 
   workspace = {
     wallet,
